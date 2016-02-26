@@ -1,5 +1,7 @@
 FROM ubuntu:14.04
 
+MAINTAINER 1for.one <ops@1for.one>
+
 RUN DISTRO=$(lsb_release -is | tr '[:upper:]' '[:lower:]'); CODENAME=$(lsb_release -cs); echo "deb http://repos.mesosphere.io/${DISTRO} ${CODENAME} main" | sudo tee /etc/apt/sources.list.d/mesosphere.list
 RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF
 
