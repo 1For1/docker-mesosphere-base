@@ -13,6 +13,17 @@ RUN apt-get -y update \
     && apt-get -y install curl python-setuptools python-pip python-dev python-protobuf \
     && apt-get -y install mesos
 
+ADD mesos-master.sh /opt/mesos
+ADD mesos-slave.sh /opt/mesos
+
+# Install mesos.
+RUN sudo apt-get -y install mesos \
+    && chmod a+x /opt/mesos/mesos-master.sh \
+    && chmod a+x /opt/mesos/mesos-slave.sh \
+    && sudo mkdir -p /etc/mesos-master \
+    && echo in_memory | sudo dd of=/etc/mesos-master/registry
+
+
 #ADD http://www.apache.org/dist/mesos/0.27.1/mesos-0.27.1.tar.gz /opt/mesos-0.27.1.tar.gz
 
 #RUN cd /opt \
