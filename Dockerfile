@@ -11,13 +11,15 @@ RUN apt-get -y update \
     && apt-get install -y autoconf libtool \
     && apt-get -y install build-essential python-dev python-boto libcurl4-nss-dev libsasl2-dev libsasl2-modules maven libapr1-dev libsvn-dev \
     && apt-get -y install curl python-setuptools python-pip python-dev python-protobuf \
-    && apt-get -y install mesos
+    && apt-get -y install mesos \
+    && mkdir /opt/mesos \
+    && ls -l /opt/mesos
 
 ADD mesos-master.sh /opt/mesos
 ADD mesos-slave.sh /opt/mesos
 
 # Install mesos.
-RUN sudo apt-get -y install mesos \
+RUN ls -l /opt && ls -l /opt/mesos \
     && chmod a+x /opt/mesos/mesos-master.sh \
     && chmod a+x /opt/mesos/mesos-slave.sh \
     && sudo mkdir -p /etc/mesos-master \
