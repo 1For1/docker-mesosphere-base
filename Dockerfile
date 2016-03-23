@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM oneforone/backend-base:latest
 
 MAINTAINER 1for.one <ops@1for.one>
 
