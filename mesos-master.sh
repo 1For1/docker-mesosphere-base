@@ -22,6 +22,6 @@ else
 fi
 
 
-echo Using OPTS: $OPTS
+echo Using OPTS: $OPTS $*
 
-/usr/sbin/mesos-master $OPTS
+/usr/sbin/mesos-master $OPTS $*

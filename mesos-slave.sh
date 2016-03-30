@@ -13,6 +13,6 @@ else
 fi
 
 
-echo Using OPTS: $OPTS
+echo Using OPTS: $OPTS $*
 
-/usr/sbin/mesos-slave $OPTS
+/usr/sbin/mesos-slave $OPTS $*
