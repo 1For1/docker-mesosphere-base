@@ -57,6 +57,7 @@ switch ( env.BRANCH_NAME ) {
         stage 'Downstream'
         slackSend color: 'blue', message: "ORG: ${env.JOB_NAME} #${env.BUILD_NUMBER} - Building Downstream"
         build '/GitHub-Organization/docker-mesosphere-master/master'
+        build '/GitHub-Organization/docker-spark/master'
 
         break
 
